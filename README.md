@@ -6,18 +6,18 @@ An interactive, two page retail analytics dashboard built in Power BI, covering 
 
 Which products, suppliers, payment methods, regions, and customer segments drive revenue and profit, and where is margin being won or lost across the order base?
 
-## Dataset
+## Data model
 
-A retail sales model built around a fact table (`FACT_SALES.xlsx`) of 100 order level rows spanning January to April 2025, with 20 distinct customers and 10 products. In Power BI the fact table is enriched with dimension attributes covering region, product category, product name, supplier, brand, customer segment, and age group, allowing the report to slice performance across all of these.
+A star schema held in a single workbook (`FACT_SALES.xlsx`) across three sheets: one fact table and two dimension tables, spanning January to April 2025. In Power BI the fact table relates to each dimension on its key, which is what powers the region, category, segment, supplier, and brand slicing across the report.
 
-Currency: US Dollars ($).
+**SALES** (fact, 100 order level rows)
 
 | Field | Description |
 | --- | --- |
 | OrderID | Unique order identifier |
 | OrderDate | Date of the order |
-| CustomerID | Customer identifier (20 unique) |
-| ProductID | Product identifier (10 unique) |
+| CustomerID | Foreign key to CUST_MASTER |
+| ProductID | Foreign key to PROD_MASTER |
 | Quantity | Units sold on the order |
 | Discount% | Discount applied to the order |
 | Sales | Order revenue |
@@ -25,9 +25,34 @@ Currency: US Dollars ($).
 | PaymentMethod | Credit Card, UPI, Cash, or Debit Card |
 | CustomerRating | Order satisfaction score, 1 to 5 |
 
+**PROD_MASTER** (product dimension, 10 rows, joined to SALES on ProductID)
+
+| Field | Description |
+| --- | --- |
+| ProductID | Primary key |
+| Product | Product name (Laptop, Mobile, TV, and so on) |
+| Category | Electronics, Furniture, Clothing, or Grocery |
+| Brand | Product brand |
+| UnitPrice | List price per unit |
+| Supplier | Supplying vendor |
+
+**CUST_MASTER** (customer dimension, 20 rows, joined to SALES on CustomerID)
+
+| Field | Description |
+| --- | --- |
+| CustomerID | Primary key |
+| CustomerName | Customer name |
+| CustomerSegment | Premium, Regular, or New |
+| Gender | Customer gender |
+| AgeGroup | Age band (18 to 25, 25 to 35, 35 to 45) |
+| Region | North, South, East, or West |
+| MembershipYears | Years as a member |
+
+Currency: US Dollars ($).
+
 ## Tools
 
-Power BI Desktop for the data model, DAX measures, and the two report pages. Source data prepared in Excel.
+Power BI Desktop for the data model, relationships, DAX measures, and the two report pages. Source data prepared in Excel.
 
 ## Headline findings
 
