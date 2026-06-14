@@ -4,15 +4,27 @@ An interactive, two page retail analytics dashboard built in Power BI, covering 
 
 ## Table of contents
 
+- [Screenshots](#screenshots)
 - [Business question](#business-question)
 - [Data model](#data-model)
 - [Tools](#tools)
 - [Headline findings](#headline-findings)
 - [Key metrics](#key-metrics)
 - [Dashboard pages](#dashboard-pages)
-- [Screenshots](#screenshots)
 - [Repository structure](#repository-structure)
 - [How to view](#how-to-view)
+
+## Screenshots
+
+<p align="center"><strong>Retail Sales Dashboard</strong></p>
+<p align="center">
+  <img src="Retail%20Dashboard-1.png" alt="Retail Sales Dashboard overview" width="850">
+</p>
+
+<p align="center"><strong>Product Analysis</strong></p>
+<p align="center">
+  <img src="Retail%20Dashboard-2.png" alt="Product Analysis page" width="850">
+</p>
 
 ## Business question
 
@@ -107,14 +119,6 @@ A deeper view of what sells and how profitably, controlled by the same Region, C
 - Total Sales by Product (bar), led by Laptop at $836K
 - Total Sales by Payment Method (donut), with Credit Card at 73.25 percent
 - Profit Margin by Brand (column), led by Dell at 23.47 percent
-
-## Screenshots
-
-### Retail Sales Dashboard
-![Retail Sales Dashboard overview](Retail%20Dashboard-1.png)
-
-### Product Analysis
-![Product Analysis page](Retail%20Dashboard-2.png)
 
 ## Repository structure
 
