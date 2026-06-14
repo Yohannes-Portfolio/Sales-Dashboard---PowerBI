@@ -1,16 +1,16 @@
-# Sales Performance Dashboard (Power BI)
+# Retail Sales Dashboard (Power BI)
 
-An interactive sales analytics dashboard built in Power BI on a transactional sales fact table, covering revenue, profitability, payment behaviour, product performance, and customer satisfaction.
-
-> Note on currency: figures are shown in the unit recorded in the source data (assumed Indian Rupees, INR). Update the symbol if this is incorrect.
+An interactive, two page retail analytics dashboard built in Power BI, covering revenue, profitability, payment behaviour, product and supplier performance, and customer satisfaction across region, category, and customer segment.
 
 ## Business question
 
-Which products, payment methods, and periods drive revenue and profit, and where is margin being won or lost across the order base?
+Which products, suppliers, payment methods, regions, and customer segments drive revenue and profit, and where is margin being won or lost across the order base?
 
 ## Dataset
 
-A single sales fact table (`FACT_SALES.xlsx`) of 100 order level rows spanning 1 January to 10 April 2025, with 20 distinct customers and 10 products.
+A retail sales model built around a fact table (`FACT_SALES.xlsx`) of 100 order level rows spanning January to April 2025, with 20 distinct customers and 10 products. In Power BI the fact table is enriched with dimension attributes covering region, product category, product name, supplier, brand, customer segment, and age group, allowing the report to slice performance across all of these.
+
+Currency: US Dollars ($).
 
 | Field | Description |
 | --- | --- |
@@ -27,59 +27,64 @@ A single sales fact table (`FACT_SALES.xlsx`) of 100 order level rows spanning 1
 
 ## Tools
 
-Power BI Desktop for the data model, DAX measures, and report pages. Source data prepared in Excel.
+Power BI Desktop for the data model, DAX measures, and the two report pages. Source data prepared in Excel.
 
 ## Headline findings
 
-- **Credit Card carries the business.** 50 of 100 orders run through Credit Card, generating roughly 1.84M in sales (about 73 percent of total revenue) at the strongest margin of any method, 22.5 percent. Cash sits lowest at 16.4 percent margin.
-- **Revenue is concentrated in a few high value products.** Product P001 alone drove 836,000 in sales (about a third of total revenue) from only 16 units, at a 23.5 percent margin. By contrast the cheap high volume lines such as P009 (84 units sold) returned the weakest margins near 16 percent.
-- **Customer satisfaction is high.** Average rating of 4.46 out of 5, with 52 orders rated 5 and none rated below 3.
-- **Overall performance.** 2,505,670 in total sales, 548,350 in total profit, a blended margin of 21.9 percent, and an average order value of roughly 25,057.
+- **Electronics carries profitability.** Electronics accounts for $404K of total profit, about 73.6 percent, and also holds the strongest category margin at 22.55 percent. Grocery is the weakest at 16.37 percent.
+- **Premium customers drive both volume and satisfaction.** The Premium segment generates $1.40M in sales, more than Regular and New combined, and carries the highest average rating at 4.85 out of 5.
+- **Revenue concentrates in a few suppliers and products.** Dell alone supplies $836K of sales, about a third of the total, sold as the top product (Laptop), and Dell also holds the highest brand margin at 23.47 percent.
+- **Credit Card carries the business.** Credit Card represents about 73.3 percent of all sales at the strongest margin of any method, while Cash sits lowest at 16.4 percent.
+- **Overall performance.** $2.51M in total sales, $548K in total profit, a blended margin of 21.88 percent, an average order value of roughly $25,057, and an average customer rating of 4.46 out of 5.
 
 ## Key metrics
 
 | Metric | Value |
 | --- | --- |
-| Total sales | 2,505,670 |
-| Total profit | 548,350 |
-| Overall margin | 21.9% |
+| Total sales | $2.51M |
+| Total profit | $548K |
+| Profit margin | 21.88% |
 | Orders | 100 |
-| Average order value | ~25,057 |
+| Average order value | ~$25,057 |
 | Average customer rating | 4.46 / 5 |
-
-### Sales and margin by payment method
-
-| Payment method | Orders | Sales | Margin |
-| --- | --- | --- | --- |
-| Credit Card | 50 | 1,835,410 | 22.5% |
-| UPI | 21 | 466,660 | 21.2% |
-| Cash | 16 | 105,700 | 16.4% |
-| Debit Card | 13 | 97,900 | 19.9% |
 
 ## Dashboard pages
 
-<!--
-Fill this section in with what your report actually shows. For each page,
-name it, say what question it answers, and list the visuals on it.
-Example structure below, replace with your own.
--->
+### Page 1: Retail Sales Dashboard (overview)
 
-**Page 1 (overview):** _describe the KPIs and visuals here_
+A performance overview answering how the business is doing and who is buying. Region, Category, and Month Year slicers control the whole page. It carries five KPI cards (Total Sales, Total Profit, Profit Margin, Orders, Avg Rating) above six visuals:
 
-**Page 2 (...):** _describe here_
+- Total Sales by Month Year (line), showing the trend across January to April
+- Total Profit by Category (donut), led by Electronics at 73.58 percent
+- Total Sales by Region (bar), led by North at $0.77M
+- Total Sales by Customer Segment (column), led by Premium at $1.40M
+- Avg Rating by Customer Segment (donut), with Premium highest at 4.85
+- Total Sales by Age Group (column), led by the 25 to 35 group at $1.12M
+
+### Page 2: Product Analysis
+
+A deeper view of what sells and how profitably, controlled by the same Region, Category, and Month Year slicers. It carries five visuals:
+
+- Profit Margin by Category (column), from Electronics at 22.55 percent down to Grocery at 16.37 percent
+- Total Sales by Supplier (donut), led by Dell at $836K (33.36 percent)
+- Total Sales by Product (bar), led by Laptop at $836K
+- Total Sales by Payment Method (donut), with Credit Card at 73.25 percent
+- Profit Margin by Brand (column), led by Dell at 23.47 percent
 
 ## Screenshots
 
-<!-- Export each report page as a PNG into the images folder and embed it here. -->
+### Retail Sales Dashboard
+![Retail Sales Dashboard overview](images/overview.png)
 
-![Dashboard overview](images/overview.png)
+### Product Analysis
+![Product Analysis page](images/product_analysis.png)
 
 ## Repository structure
 
 ```
-sales_dashboard_powerbi/
+retail_sales_dashboard_powerbi/
 ├── README.md
-├── images/        screenshots of each dashboard page
+├── images/         screenshots of each dashboard page
 ├── dashboard/      the .pbix file
 └── data/           FACT_SALES.xlsx
 ```
