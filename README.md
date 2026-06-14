@@ -109,23 +109,3 @@ A deeper view of what sells and how profitably, controlled by the same Region, C
 - Profit Margin by Brand (column), led by Dell at 23.47 percent
 
 ## Screenshots
-
-### Retail Sales Dashboard
-![Retail Sales Dashboard overview](images/overview.png)
-
-### Product Analysis
-![Product Analysis page](images/product_analysis.png)
-
-## Repository structure
-
-```
-retail_sales_dashboard_powerbi/
-├── README.md
-├── images/         screenshots of each dashboard page
-├── dashboard/      the .pbix file
-└── data/           FACT_SALES.xlsx
-```
-
-## How to view
-
-The fastest way to see this project is the screenshots above. To open the live report, download the `.pbix` file from the `dashboard` folder and open it in Power BI Desktop (free).
