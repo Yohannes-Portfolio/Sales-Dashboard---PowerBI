@@ -2,6 +2,18 @@
 
 An interactive, two page retail analytics dashboard built in Power BI, covering revenue, profitability, payment behaviour, product and supplier performance, and customer satisfaction across region, category, and customer segment.
 
+## Table of contents
+
+- [Business question](#business-question)
+- [Data model](#data-model)
+- [Tools](#tools)
+- [Headline findings](#headline-findings)
+- [Key metrics](#key-metrics)
+- [Dashboard pages](#dashboard-pages)
+- [Screenshots](#screenshots)
+- [Repository structure](#repository-structure)
+- [How to view](#how-to-view)
+
 ## Business question
 
 Which products, suppliers, payment methods, regions, and customer segments drive revenue and profit, and where is margin being won or lost across the order base?
